@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 5.5f;
     //Variable para la fuerza del salto
     public float jumpForce = 3f;
+    public Animator anim;
 
     //Variable para acceder al SpriteRenderer
     private SpriteRenderer spriteRenderer;
@@ -19,8 +20,17 @@ public class PlayerController : MonoBehaviour
     //Variable para almacenar el input de movimiento
     float horizontal;
 
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
     GameManager gameManager;
     SFXManager sfxManager;
+
+
+    void Start()
+    {
+        anim=GetComponent <Animator>();
+    }
 
     void Awake()
     {
@@ -54,14 +64,17 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
 
-
-
-
             if(Input.GetButtonDown("Jump") && sensor.isGrounded)
             {
                 rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }    
+
+       // anim.SetBool ("MARIO_ANIMATION",true);
+       // anim.SetBool ("MARIO_ANIMATION",false);
+       // anim.SetBool ("MARIO_JUMPING",true);
+        //anim.SetBool ("MARIO_JUMPING",false);
+
         
     }
 

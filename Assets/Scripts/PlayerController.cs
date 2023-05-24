@@ -68,12 +68,13 @@ public class PlayerController : MonoBehaviour
             {
                 rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
+
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+            }
         }    
 
-       // anim.SetBool ("MARIO_ANIMATION",true);
-       // anim.SetBool ("MARIO_ANIMATION",false);
-       // anim.SetBool ("MARIO_JUMPING",true);
-        //anim.SetBool ("MARIO_JUMPING",false);
 
         
     }
